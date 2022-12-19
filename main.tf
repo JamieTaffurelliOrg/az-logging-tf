@@ -157,6 +157,16 @@ resource "azurerm_monitor_diagnostic_setting" "storage_account_diagnostics" {
       days    = 365
     }
   }
+
+  metric {
+    category = "Capacity"
+    enabled  = false
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
 }
 
 locals {
@@ -206,6 +216,16 @@ resource "azurerm_monitor_diagnostic_setting" "storage_account_child_diagnostics
     retention_policy {
       enabled = true
       days    = 365
+    }
+  }
+
+  metric {
+    category = "Capacity"
+    enabled  = false
+
+    retention_policy {
+      days    = 0
+      enabled = false
     }
   }
 }
