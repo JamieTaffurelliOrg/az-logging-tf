@@ -241,6 +241,7 @@ resource "azurerm_network_watcher" "logging" {
   name                = each.value.name
   resource_group_name = var.resource_group_name
   location            = each.value.location
+  tags                = var.tags
 }
 
 /*locals {
