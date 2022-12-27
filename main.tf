@@ -236,14 +236,6 @@ resource "azurerm_log_analytics_linked_service" "logging" {
   read_access_id      = azurerm_automation_account.logging.id
 }
 
-resource "azurerm_network_watcher" "logging" {
-  for_each            = var.network_watchers
-  name                = each.value.name
-  resource_group_name = var.resource_group_name
-  location            = each.value.location
-  tags                = var.tags
-}
-
 /*locals {
   event_sources = [
     {
