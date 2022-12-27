@@ -23,16 +23,6 @@ variable "storage_account_name" {
   description = "Name of the Storage Account to deploy"
 }
 
-variable "network_watchers" {
-  type = map(object(
-    {
-      name     = string
-      location = string
-    }
-  ))
-  description = "Name and loaction of the Network Watchers to deploy"
-}
-
 /*variable "data_collection_rule_template_path" {
   type        = string
   description = "Path to data collection rule arm template"

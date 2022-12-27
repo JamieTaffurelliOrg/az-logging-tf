@@ -51,8 +51,3 @@ output "storage_account_secondary_access_key" {
   value       = jsondecode(azurerm_resource_group_template_deployment.vmguesthealth.output_content).id.value
   description = "Resource ID of data collection rule"
 }*/
-
-output "network_watchers" {
-  value       = azurerm_network_watcher.logging
-  description = "Network Watchers"
-}
