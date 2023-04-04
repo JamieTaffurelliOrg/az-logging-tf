@@ -47,6 +47,7 @@ resource "azurerm_monitor_diagnostic_setting" "log_analytics_workspace_diagnosti
 }
 
 resource "azurerm_automation_account" "logging" {
+  #checkov:skip=CKV2_AZURE_24:Public automation account may be unavoidable
   name                = var.automation_account_name
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -110,6 +111,11 @@ resource "azurerm_monitor_diagnostic_setting" "automation_account_diagnostics" {
 }
 
 resource "azurerm_storage_account" "logging" {
+  #checkov:skip=CKV2_AZURE_33:This is an old way of logging, diagnostics are enabled
+  #checkov:skip=CKV_AZURE_33:This is an old way of logging, diagnostics are enabled
+  #checkov:skip=CKV2_AZURE_18:This is unnecessary for most scenarios
+  #checkov:skip=CKV2_AZURE_1:We may require some storage accounts to not have firewalls
+  #checkov:skip=CKV_AZURE_59:Value is deprecated
   name                            = var.storage_account_name
   location                        = var.location
   resource_group_name             = var.resource_group_name
