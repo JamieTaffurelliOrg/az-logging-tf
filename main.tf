@@ -52,7 +52,11 @@ resource "azurerm_automation_account" "logging" {
   location            = var.location
   resource_group_name = var.resource_group_name
   sku_name            = "Basic"
-  tags                = var.tags
+
+  identity {
+    type = "SystemAssigned"
+  }
+  tags = var.tags
 }
 
 resource "azurerm_monitor_diagnostic_setting" "automation_account_diagnostics" {
