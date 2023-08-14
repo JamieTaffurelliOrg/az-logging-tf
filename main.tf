@@ -265,6 +265,132 @@ resource "azurerm_application_insights" "app_insights" {
   tags = var.tags
 }
 
+resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
+  name                       = "${var.log_analytics_workspace_name}-security-logging"
+  target_resource_id         = azurerm_application_insights.app_insights.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.logging.id
+
+  log {
+    category = "AvailabilityResults"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "BrowserTimings"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "Events"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "Metrics"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "Dependencies"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "Exceptions"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "PageViews"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "PerformanceCounters"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "Requests"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "SystemEvents"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "Traces"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = false
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+}
+
 /*locals {
   event_sources = [
     {
