@@ -271,7 +271,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   log_analytics_workspace_id = azurerm_log_analytics_workspace.logging.id
 
   log {
-    category = "AvailabilityResults"
+    category = "AppAvailabilityResults"
     enabled  = true
 
     retention_policy {
@@ -281,7 +281,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "BrowserTimings"
+    category = "AppBrowserTimings"
     enabled  = true
 
     retention_policy {
@@ -291,7 +291,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "Events"
+    category = "AppEvents"
     enabled  = true
 
     retention_policy {
@@ -301,7 +301,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "Metrics"
+    category = "AppMetrics"
     enabled  = true
 
     retention_policy {
@@ -311,7 +311,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "Dependencies"
+    category = "AppDependencies"
     enabled  = true
 
     retention_policy {
@@ -321,7 +321,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "Exceptions"
+    category = "AppExceptions"
     enabled  = true
 
     retention_policy {
@@ -331,7 +331,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "PageViews"
+    category = "AppPageViews"
     enabled  = true
 
     retention_policy {
@@ -341,7 +341,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "PerformanceCounters"
+    category = "AppPerformanceCounters"
     enabled  = true
 
     retention_policy {
@@ -351,7 +351,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "Requests"
+    category = "AppRequests"
     enabled  = true
 
     retention_policy {
@@ -361,7 +361,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "SystemEvents"
+    category = "AppSystemEvents"
     enabled  = true
 
     retention_policy {
@@ -371,7 +371,7 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   }
 
   log {
-    category = "Traces"
+    category = "AppTraces"
     enabled  = true
 
     retention_policy {
