@@ -382,11 +382,11 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
 
   metric {
     category = "AllMetrics"
-    enabled  = false
+    enabled  = true
 
     retention_policy {
-      days    = 0
-      enabled = false
+      enabled = true
+      days    = 365
     }
   }
 }
