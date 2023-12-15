@@ -26,18 +26,13 @@ resource "azurerm_monitor_diagnostic_setting" "log_analytics_workspace_diagnosti
   target_resource_id         = azurerm_log_analytics_workspace.logging.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.logging.id
 
-  log {
+  enabled_log {
     category = "Audit"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
   metric {
     category = "AllMetrics"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -64,48 +59,25 @@ resource "azurerm_monitor_diagnostic_setting" "automation_account_diagnostics" {
   target_resource_id         = azurerm_automation_account.logging.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.logging.id
 
-  log {
+  enabled_log {
     category = "AuditEvent"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "JobLogs"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "JobStreams"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "DSCNodeStatus"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
   metric {
     category = "AllMetrics"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -189,34 +161,16 @@ resource "azurerm_monitor_diagnostic_setting" "storage_account_child_diagnostics
   target_resource_id         = "${azurerm_storage_account.logging.id}/${each.value}/default/"
   log_analytics_workspace_id = azurerm_log_analytics_workspace.logging.id
 
-  log {
+  enabled_log {
     category = "StorageRead"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "StorageWrite"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "StorageDelete"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
   metric {
@@ -270,114 +224,48 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
   target_resource_id         = azurerm_application_insights.app_insights.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.logging.id
 
-  log {
+  enabled_log {
     category = "AppAvailabilityResults"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppBrowserTimings"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppEvents"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppMetrics"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppDependencies"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppExceptions"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppPageViews"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppPerformanceCounters"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppRequests"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppSystemEvents"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
-  log {
+  enabled_log {
     category = "AppTraces"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
   metric {
