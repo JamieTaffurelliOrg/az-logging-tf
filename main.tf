@@ -32,12 +32,6 @@ resource "azurerm_monitor_diagnostic_setting" "log_analytics_workspace_diagnosti
 
   metric {
     category = "AllMetrics"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 }
 
@@ -77,12 +71,6 @@ resource "azurerm_monitor_diagnostic_setting" "automation_account_diagnostics" {
 
   metric {
     category = "AllMetrics"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 }
 
@@ -123,6 +111,7 @@ resource "azurerm_storage_account" "logging" {
   identity {
     type = "SystemAssigned"
   }
+
   tags = var.tags
 }
 
@@ -142,12 +131,6 @@ resource "azurerm_monitor_diagnostic_setting" "storage_account_diagnostics" {
 
   metric {
     category = "Capacity"
-    enabled  = false
-
-    retention_policy {
-      days    = 0
-      enabled = false
-    }
   }
 }
 
@@ -175,22 +158,11 @@ resource "azurerm_monitor_diagnostic_setting" "storage_account_child_diagnostics
 
   metric {
     category = "Transaction"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 
   metric {
     category = "Capacity"
     enabled  = false
-
-    retention_policy {
-      days    = 0
-      enabled = false
-    }
   }
 }
 
@@ -270,12 +242,6 @@ resource "azurerm_monitor_diagnostic_setting" "app_insights_diagnostics" {
 
   metric {
     category = "AllMetrics"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days    = 365
-    }
   }
 }
 
